@@ -3,16 +3,6 @@ from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
 
-"""left_tasks = [
-    "None",
-    "copy",
-    "paste",
-    "undo",
-    "redo",
-    "go back",
-    "go forward",
-]"""
-
 
 class GestureControlPanel:
     def __init__(self):
@@ -25,12 +15,6 @@ class GestureControlPanel:
         self.show_command = False
         self.command_button = None
         self.smoothing = 5.0
-
-        """# HAND GESTURES
-        self.gesture_imrp = None  # index middle ring pinky
-        self.gesture_p = None  # pinky
-        self.gesture_rp = None  # ring pinky
-        self.gesture_mrp = None  # middle ring pinky"""
 
         # BUTTONS
         self.show_camera_button = None

@@ -29,17 +29,6 @@ def click_go_forward():
     pyautogui.hotkey("alt", "right")
 
 
-"""def do_custom_function(keys):
-    if keys is None or keys == "":
-        pass  # do nothing
-    else:
-        try:
-            key_seq = keys.replace(" ", "").lower().split("+")
-            pyautogui.hotkey(*key_seq)
-        except:
-            print("Custom function incapable")"""
-
-
 def show_command(img, command, font, y, color):
     cv2.putText(
         img,
@@ -52,15 +41,6 @@ def show_command(img, command, font, y, color):
         cv2.LINE_AA,
     )
 
-
-"""left_tasks = [
-    "copy",
-    "paste",
-    "undo",
-    "redo",
-    "go back",
-    "go forward",
-]"""
 
 function_map = {
     "copy": click_copy,
