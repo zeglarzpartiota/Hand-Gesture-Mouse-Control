@@ -5,29 +5,6 @@ from control_panel import GestureControlPanel
 from threading import Thread
 
 
-def click_copy():
-    pyautogui.hotkey("ctrl", "c")
-
-
-def click_paste():
-    pyautogui.hotkey("ctrl", "v")
-
-
-def click_undo():
-    pyautogui.hotkey("ctrl", "z")
-
-
-def click_redo():
-    pyautogui.hotkey("ctrl", "y")
-
-
-def click_go_back():
-    pyautogui.hotkey("alt", "left")
-
-
-def click_go_forward():
-    pyautogui.hotkey("alt", "right")
-
 
 def show_command(img, command, font, y, color):
     cv2.putText(
@@ -40,16 +17,6 @@ def show_command(img, command, font, y, color):
         2,
         cv2.LINE_AA,
     )
-
-
-function_map = {
-    "copy": click_copy,
-    "paste": click_paste,
-    "undo": click_undo,
-    "redo": click_redo,
-    "go back": click_go_back,
-    "go forward": click_go_forward,
-}
 
 
 control_panel = GestureControlPanel()
@@ -138,7 +105,7 @@ def run_camera():
 
                 # Gesture recognition
                 # V-shape: Cursor-moving state
-                if fingers_open == [1, 1, 0, 0]:  # Ignored thumb for anlge issue
+                if fingers_open == [1, 1, 0, 0]:  # Ignored thumb
                     if is_dragging:
                         pyautogui.mouseUp()
                         is_dragging = False
@@ -155,7 +122,7 @@ def run_camera():
                     if control_panel.show_command:
                         show_command(image, "Moving", font, 70, (0, 0, 255))
 
-                elif fingers_open == [1, 0, 0, 0] and not has_clicked:  # Only middle finger open: Left click
+                elif fingers_open == [1, 0, 0, 0] and not has_clicked:  # Only index finger open: Left click
                     if is_dragging:
                         pyautogui.mouseUp()
                         is_dragging = False
@@ -164,7 +131,7 @@ def run_camera():
                     if control_panel.show_command:
                         show_command(image, "Left Click", font, 70, (0, 0, 255))
 
-                elif fingers_open == [0, 1, 0, 0] and not has_clicked:  # Only index finger open: Right click
+                elif fingers_open == [0, 1, 0, 0] and not has_clicked:  # Only middle finger open: Right click
                     if is_dragging:
                         pyautogui.mouseUp()
                         is_dragging = False
